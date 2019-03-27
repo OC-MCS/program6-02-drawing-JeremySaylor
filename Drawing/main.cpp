@@ -1,6 +1,10 @@
 //================================================
-// YOUR NAME GOES HERE <-----------------  
+// Jeremy Saylor
+// 29 Mar 2019
+// Programming Assignment #6
+// Pragramming II
 //================================================
+
 #include <iostream>
 #include <fstream>
 using namespace std;
