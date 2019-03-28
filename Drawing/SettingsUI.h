@@ -16,7 +16,7 @@ using namespace sf;
 class SettingsUI
 {
 private:
-
+	SettingsMgr *manager;
 public:
 	SettingsUI(SettingsMgr *mgr)
 	{

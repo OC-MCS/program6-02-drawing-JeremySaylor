@@ -34,6 +34,48 @@ int main()
 	
 	// ********* Add code here to make the managers read from shapes file (if the file exists)
 
+		// writing age as binary (this is new)
+	//fstream binFile;
+	//binFile.open("binaryFile.dat", ios::out | ios::binary);
+	//binFile.write(reinterpret_cast<char*>(&age), sizeof(age));
+	//binFile.close();
+
+	//// reading from binary file into RAM
+	//fstream inBinFile;
+	//inBinFile.open("binaryFile.dat", ios::in | ios::binary);
+	//if (inBinFile)
+	//{
+	//	inBinFile.read(reinterpret_cast<char*>(&age), sizeof(age));
+	//	cout << "Successfully read binary file: " << age << endl;
+	//	inBinFile.close();
+	//}
+
+	/*struct Student
+	{
+		char name[16];
+		int age;
+	};
+
+	Student stu = { "bob", 16 };
+
+	fstream file;
+	file.open("data.dat", ios::out | ios::binary);
+	file.write(reinterpret_cast<char*>(&stu), sizeof(stu));
+
+	strcpy_s(stu.name, "fred");
+	stu.age = 20;
+	file.write(reinterpret_cast<char*>(&stu), sizeof(stu));
+	file.close();
+
+	file.open("data.dat", ios::in | ios::binary);
+	while (file.read(reinterpret_cast<char*>(&stu), sizeof(stu)))
+	{
+		cout << stu.name << " " << stu.age << endl;
+	}*/
+
+
+	// ********* Add code here to make the managers read from shapes file (if the file exists)
+
 	while (window.isOpen()) 
 	{
 		Event event;
