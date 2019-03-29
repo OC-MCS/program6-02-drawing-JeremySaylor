@@ -85,11 +85,31 @@ int main()
 			{
 				window.close();
 				// ****** Add code here to write all data to shapes file
+
+
+				/*file.write(reinterpret_cast<char*>(&stu), sizeof(stu));
+				file.close();*/
+
+
+				// ****** Add code here to write all data to shapes file
 			}
 			else if (event.type == Event::MouseButtonReleased)
 			{
 				// maybe they just clicked on one of the settings "buttons"
 				// check for this and handle it.
+
+				////6.	How to determine if the mouse is over something
+				//if (colorBtn.getGlobalBounds().contains(mouse)) // mouse is a vector2f
+//	// mouse is currently over colorBtn
+				/*if (colorBtn.getGlobalBounds().contains(mouse))
+				{
+
+				}*/
+
+
+				// maybe they just clicked on one of the settings "buttons"
+				// check for this and handle it.
+
 				Vector2f mousePos = window.mapPixelToCoords(Mouse::getPosition(window));
 				settingsUI.handleMouseUp(mousePos);
 			}
@@ -98,8 +118,14 @@ int main()
 				
 				Vector2f mousePos = window.mapPixelToCoords(Mouse::getPosition(window));
 				// check to see if mouse is in the drawing area
+
+
+				// check to see if mouse is in the drawing area
 				if (drawingUI.isMouseInCanvas(mousePos))
 				{
+					// add a shape to the list based on current settings
+
+
 					// add a shape to the list based on current settings
 					shapeMgr.addShape(mousePos, settingsMgr.getCurShape(), settingsMgr.getCurColor());
 				}
@@ -115,6 +141,8 @@ int main()
 		// this should draw the rectangle that encloses the drawing area, then draw the
 		// shapes. This is passed the shapeMgr so that the drawingUI can get the shapes
 		// in order to draw them. This redraws *all* of the shapes every frame.
+
+
 		drawingUI.draw(window, &shapeMgr);
 
 		window.display();
