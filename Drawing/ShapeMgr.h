@@ -18,8 +18,8 @@ struct Data
 {
 	Vector2f position;
 	ShapeEnum which_Shape;
-	// int clr;
-	Color clr;
+	int clr;
+	//Color clr;
 };
 
 class ShapeMgr
@@ -40,8 +40,8 @@ public:
 		Data temp;
 		temp.position = pos;
 		temp.which_Shape = whichShape;
-		//temp.clr = colorNumber;
-		temp.clr = color;
+		temp.clr = colorNumber;
+		//temp.clr = color;
 		
 		
 

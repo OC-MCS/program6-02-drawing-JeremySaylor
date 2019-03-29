@@ -38,16 +38,19 @@ public:
 			mgr->getShapes()[i].clr;
 			mgr->getShapes()[i].which_Shape;
 
+			Color aColor(mgr->getShapes()[i].clr);
+
+
 			Color temp;
-			if (mgr->getShapes()[i].clr == Color::Blue)
+			if (aColor == Color::Blue)
 			{
 				temp = Color::Blue;
 			}
-			if (mgr->getShapes()[i].clr == Color::Red)
+			if (aColor == Color::Red)
 			{
 				temp = Color::Red;
 			}
-			if (mgr->getShapes()[i].clr == Color::Green)
+			if (aColor == Color::Green)
 			{
 				temp = Color::Green;
 			}
