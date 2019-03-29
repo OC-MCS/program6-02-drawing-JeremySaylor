@@ -34,45 +34,16 @@ int main()
 	
 	// ********* Add code here to make the managers read from shapes file (if the file exists)
 
-		// writing age as binary (this is new)
-	//fstream binFile;
-	//binFile.open("binaryFile.dat", ios::out | ios::binary);
-	//binFile.write(reinterpret_cast<char*>(&age), sizeof(age));
-	//binFile.close();
-
-	//// reading from binary file into RAM
-	//fstream inBinFile;
-	//inBinFile.open("binaryFile.dat", ios::in | ios::binary);
-	//if (inBinFile)
-	//{
-	//	inBinFile.read(reinterpret_cast<char*>(&age), sizeof(age));
-	//	cout << "Successfully read binary file: " << age << endl;
-	//	inBinFile.close();
-	//}
-
-	/*struct Student
-	{
-		char name[16];
-		int age;
-	};
-
-	Student stu = { "bob", 16 };
-
+	/*ShapeMgr    shapeMgrTemp;
 	fstream file;
-	file.open("data.dat", ios::out | ios::binary);
-	file.write(reinterpret_cast<char*>(&stu), sizeof(stu));
-
-	strcpy_s(stu.name, "fred");
-	stu.age = 20;
-	file.write(reinterpret_cast<char*>(&stu), sizeof(stu));
-	file.close();
-
-	file.open("data.dat", ios::in | ios::binary);
-	while (file.read(reinterpret_cast<char*>(&stu), sizeof(stu)))
-	{
-		cout << stu.name << " " << stu.age << endl;
-	}*/
-
+	int i = 0;
+	file.open("shapes.bin", ios::in | ios::binary);
+	while (file.read(reinterpret_cast<char*>(&shapeMgrTemp.getShapes()[i]), sizeof(shapeMgrTemp.getShapes()[i])))
+	{		
+		shapeMgr.addShape(shapeMgrTemp.getShapes()[i].position, shapeMgrTemp.getShapes()[i].which_Shape, shapeMgrTemp.getShapes()[i].clr);
+			i++;
+	}
+	file.close();*/
 
 	// ********* Add code here to make the managers read from shapes file (if the file exists)
 
@@ -86,27 +57,19 @@ int main()
 				window.close();
 				// ****** Add code here to write all data to shapes file
 
+				fstream file;
+				file.open("shapes.bin", ios::out | ios::binary);
+				for (int i = 0; i < shapeMgr.getShapes().size(); i++)
+				{
+					file.write(reinterpret_cast<char*>(&shapeMgr.getShapes()[i]), sizeof(shapeMgr.getShapes()[i]));
+				}
 
-				/*file.write(reinterpret_cast<char*>(&stu), sizeof(stu));
-				file.close();*/
-
+				file.close();
 
 				// ****** Add code here to write all data to shapes file
 			}
 			else if (event.type == Event::MouseButtonReleased)
 			{
-				// maybe they just clicked on one of the settings "buttons"
-				// check for this and handle it.
-
-				////6.	How to determine if the mouse is over something
-				//if (colorBtn.getGlobalBounds().contains(mouse)) // mouse is a vector2f
-//	// mouse is currently over colorBtn
-				/*if (colorBtn.getGlobalBounds().contains(mouse))
-				{
-
-				}*/
-
-
 				// maybe they just clicked on one of the settings "buttons"
 				// check for this and handle it.
 
@@ -119,8 +82,6 @@ int main()
 				Vector2f mousePos = window.mapPixelToCoords(Mouse::getPosition(window));
 				// check to see if mouse is in the drawing area
 
-
-				// check to see if mouse is in the drawing area
 				if (drawingUI.isMouseInCanvas(mousePos))
 				{
 					// add a shape to the list based on current settings

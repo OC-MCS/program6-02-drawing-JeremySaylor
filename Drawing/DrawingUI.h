@@ -16,43 +16,28 @@ using namespace sf;
 class DrawingUI
 {
 private:
-	//Vector2f xy;
+	
 public:
 	DrawingUI(Vector2f p)
-	{
-		//xy = p;
-	}
+	{}
 
 	void draw(RenderWindow& win, ShapeMgr *mgr)
 	{
-		//DrawingShape temp;
-
-
-
-		RectangleShape squareCanvas; // RectangleShape is Graphics lib class
+		RectangleShape squareCanvas; 
 		Vector2f sqPos(200, 0);
 		squareCanvas.setPosition(sqPos);
 		squareCanvas.setOutlineColor(Color::White);
 		squareCanvas.setOutlineThickness(2);
 		squareCanvas.setSize(Vector2f(600, 600));
 		squareCanvas.setFillColor(Color::Transparent);
-		// renders a RectangleShape
 		win.draw(squareCanvas);
-		//win.draw(squareCanvas);
-		//win.draw(mgr);
+
 		for (int i = 0; i < mgr->getShapes().size(); i++)
 		{
 			mgr->getShapes()[i].position;
 			mgr->getShapes()[i].clr;
 			mgr->getShapes()[i].which_Shape;
-			/*if (mgr->getShapes()[i].which_Shape = SQUARE)
-			{
-				RectangleShape greenBtn;
-			}
-			else
-			{
-				CircleShape greenBtn;
-			}*/
+
 			Color temp;
 			if (mgr->getShapes()[i].clr == Color::Blue)
 			{
@@ -67,34 +52,28 @@ public:
 				temp = Color::Green;
 			}
 
-
-			//getShape(mgr->getShapes()[i].which_Shape);
-
-			//mgr->getShapes()[i].clr;
-			//Color temp;
-			//Color aColor(mgr->getShapes()[i].clr);
-
-			//if(Color aColor(mgr->getShapes()[i].clr) == Color::Blue)
-
-
-
-			RectangleShape greenBtn;
-				//CircleShape is a Graphics lib class
-			Vector2f pos3(mgr->getShapes()[i].position);
-			greenBtn.setPosition(pos3);
-			greenBtn.setSize(Vector2f(40, 40));
-			//greenBtn.setRadius(20);
-			greenBtn.setOutlineThickness(2);
-			greenBtn.setOutlineColor(temp);
-			// for just an outlined button
-			greenBtn.setFillColor(temp);
-			// The following renders the circle on the screen
-			// win is a RenderWindow (see provided code)
-			win.draw(greenBtn);
-
-
-
-
+			if (mgr->getShapes()[i].which_Shape == CIRCLE)
+			{
+				CircleShape greenBtn;
+				Vector2f pos3(mgr->getShapes()[i].position);
+				greenBtn.setPosition(pos3);
+				greenBtn.setRadius(20);
+				greenBtn.setOutlineThickness(2);
+				greenBtn.setOutlineColor(temp);
+				greenBtn.setFillColor(temp);
+				win.draw(greenBtn);
+			}
+			if (mgr->getShapes()[i].which_Shape == SQUARE)
+			{
+				RectangleShape greenBtn;
+				Vector2f pos3(mgr->getShapes()[i].position);
+				greenBtn.setPosition(pos3);
+				greenBtn.setSize(Vector2f(40, 40));
+				greenBtn.setOutlineThickness(2);
+				greenBtn.setOutlineColor(temp);
+				greenBtn.setFillColor(temp);
+				win.draw(greenBtn);
+			}
 		}
 };
 	
